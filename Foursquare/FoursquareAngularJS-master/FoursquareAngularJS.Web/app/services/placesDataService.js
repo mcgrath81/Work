@@ -70,5 +70,5 @@ app.factory('placesDataService', function ($http, toaster) {
 
     placesDataFactory.savePlace = _savePlace;
 
-    return placesDataFactory
+    return placesDataFactory;
 });

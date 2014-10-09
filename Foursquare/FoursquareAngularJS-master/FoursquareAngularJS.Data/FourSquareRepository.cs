@@ -19,6 +19,8 @@ namespace FoursquareAngularJS.Data
 
     public class FourSquareRepository : IFourSquareRepository
     {
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
         private FourSquareContext _ctx;
         public FourSquareRepository()
         {
@@ -34,18 +36,29 @@ namespace FoursquareAngularJS.Data
 
         public bool UserNameExists(string userName)
         {
-            return _ctx.BookmarkedPlaces.Any(b => b.UserName == userName); 
+            try
+            {
+                throw new Exception();
+                return _ctx.BookmarkedPlaces.Any(b => b.UserName == userName);
+            }
+            catch (Exception ex)
+            {
+                log.Error("UserNameExists", ex);
+                //Log exception here
+                return false;
+            }
         }
 
         public int SavePlace(BookmarkedPlace bookmarkedPlace)
         {
             try
             {
-                if (_ctx.BookmarkedPlaces.Any(b => b.UserName == bookmarkedPlace.UserName 
-                                                && b.VenueID == bookmarkedPlace.VenueID))
-                {
-                    return -1;
-                }
+                throw new Exception();
+                //if (_ctx.BookmarkedPlaces.Any(b => b.UserName == bookmarkedPlace.UserName 
+                //                                && b.VenueID == bookmarkedPlace.VenueID))
+                //{
+                //    return -1;
+                //}
 
                 bookmarkedPlace.TS = DateTime.Now;
                 _ctx.BookmarkedPlaces.Add(bookmarkedPlace);
@@ -53,9 +66,9 @@ namespace FoursquareAngularJS.Data
                 return _ctx.SaveChanges();
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
+                log.Error("SavePlace", ex);
                 //Log exception here
                 return 0;
             }
