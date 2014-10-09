@@ -1,0 +1,12 @@
+C:\Users\mcgraths\Documents\Visual Studio 2012\Projects\ConnectTest (2)\DataConnect\bin\Debug\DataConnect.dll
+C:\Users\mcgraths\Documents\Visual Studio 2012\Projects\ConnectTest (2)\DataConnect\bin\Debug\DataConnect.pdb
+C:\Users\mcgraths\Documents\Visual Studio 2012\Projects\ConnectTest (2)\DataConnect\obj\Debug\DataConnect.dll
+C:\Users\mcgraths\Documents\Visual Studio 2012\Projects\ConnectTest (2)\DataConnect\obj\Debug\DataConnect.pdb
+C:\Users\mcgraths\Documents\Visual Studio 2012\Projects\ConnectTest (2)\DataConnect\bin\Debug\MySql.Data.dll
+C:\Users\mcgraths\Documents\Visual Studio 2012\Projects\ConnectTest (2)\DataConnect\obj\Debug\DataConnect.csprojResolveAssemblyReference.cache
+C:\GitHub\Work\ConnectionTest\ConnectionTest\DataConnect\bin\Debug\DataConnect.dll
+C:\GitHub\Work\ConnectionTest\ConnectionTest\DataConnect\bin\Debug\DataConnect.pdb
+C:\GitHub\Work\ConnectionTest\ConnectionTest\DataConnect\bin\Debug\MySql.Data.dll
+C:\GitHub\Work\ConnectionTest\ConnectionTest\DataConnect\obj\Debug\DataConnect.csprojResolveAssemblyReference.cache
+C:\GitHub\Work\ConnectionTest\ConnectionTest\DataConnect\obj\Debug\DataConnect.dll
+C:\GitHub\Work\ConnectionTest\ConnectionTest\DataConnect\obj\Debug\DataConnect.pdb
