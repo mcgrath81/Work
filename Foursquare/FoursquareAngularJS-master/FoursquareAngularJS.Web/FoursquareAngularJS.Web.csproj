@@ -166,8 +166,12 @@
     <Content Include="content\css\site.css" />
     <Content Include="content\css\toaster.css" />
     <Content Include="content\fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="Dlls\System.Net.Http.dll" />
-    <Content Include="Dlls\System.Web.Http.Data.Helpers.dll" />
+    <Content Include="Dlls\System.Net.Http.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Dlls\System.Web.Http.Data.Helpers.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="content\fonts\glyphicons-halflings-regular.eot" />
@@ -219,8 +223,12 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Log4Net.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <None Include="Properties\PublishProfiles\explore4sq - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\explore4sq - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\fsqPublish.pubxml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

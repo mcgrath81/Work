@@ -24,7 +24,16 @@ namespace FoursquareAngularJS.Data
         private FourSquareContext _ctx;
         public FourSquareRepository()
         {
-            _ctx = new FourSquareContext();
+            try
+            {
+                _ctx = new FourSquareContext();
+            }
+            catch (Exception ex)
+            {
+                log.Error("FourSquareRepository", ex);
+                //Log exception here
+               
+            }
         }
 
         public IQueryable<BookmarkedPlace> GetBookmarkedPlaces(string userName)
@@ -38,7 +47,6 @@ namespace FoursquareAngularJS.Data
         {
             try
             {
-                throw new Exception();
                 return _ctx.BookmarkedPlaces.Any(b => b.UserName == userName);
             }
             catch (Exception ex)
@@ -53,12 +61,11 @@ namespace FoursquareAngularJS.Data
         {
             try
             {
-                throw new Exception();
-                //if (_ctx.BookmarkedPlaces.Any(b => b.UserName == bookmarkedPlace.UserName 
-                //                                && b.VenueID == bookmarkedPlace.VenueID))
-                //{
-                //    return -1;
-                //}
+                if (_ctx.BookmarkedPlaces.Any(b => b.UserName == bookmarkedPlace.UserName
+                                                && b.VenueID == bookmarkedPlace.VenueID))
+                {
+                    return -1;
+                }
 
                 bookmarkedPlace.TS = DateTime.Now;
                 _ctx.BookmarkedPlaces.Add(bookmarkedPlace);
