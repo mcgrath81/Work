@@ -34,7 +34,8 @@ namespace FoursquareAngularJS.Data.Mappers
             this.Property(c => c.Category).IsOptional();
             this.Property(c => c.Category).HasMaxLength(100);
 
-            this.Property(c => c.Rating).IsOptional();
+            //this.Property(c => c.Rating).IsOptional();
+            this.Property(c => c.ArrivalDate).HasColumnType("smalldatetime");
 
             this.Property(c => c.TS).IsOptional();
             this.Property(c => c.TS).HasColumnType("smalldatetime");

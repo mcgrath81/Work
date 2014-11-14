@@ -15,6 +15,7 @@ namespace FoursquareAngularJS.Data.Entities
         public string Address { get; set; }
         public string Category { get; set; }
         public Decimal Rating { get; set; }
+        public DateTime ArrivalDate { get; set; }
         public DateTime? TS { get; set; }
     }
 }

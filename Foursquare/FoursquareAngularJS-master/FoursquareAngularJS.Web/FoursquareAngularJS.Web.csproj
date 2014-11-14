@@ -148,6 +148,7 @@
     <Content Include="app\controllers\userContextController.js" />
     <Content Include="app\controllers\placesExplorerController.js" />
     <Content Include="app\controllers\placesPhotosController.js" />
+    <Content Include="app\directives\fsDatePicker.js" />
     <Content Include="app\directives\fsUnique.js" />
     <Content Include="app\filters\placeNameCategoryFilter.js" />
     <Content Include="app\services\placesDataService.js" />
@@ -166,6 +167,13 @@
     <Content Include="content\css\site.css" />
     <Content Include="content\css\toaster.css" />
     <Content Include="content\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="content\thirdparty\pickadate\themes\classic.css" />
+    <Content Include="content\thirdparty\pickadate\themes\classic.date.css" />
+    <Content Include="content\thirdparty\pickadate\themes\classic.time.css" />
+    <Content Include="content\thirdparty\pickadate\themes\default.css" />
+    <Content Include="content\thirdparty\pickadate\themes\default.date.css" />
+    <Content Include="content\thirdparty\pickadate\themes\default.time.css" />
+    <Content Include="content\thirdparty\pickadate\themes\rtl.css" />
     <Content Include="Dlls\System.Net.Http.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -188,6 +196,10 @@
     <Content Include="scripts\angular.min.js" />
     <Content Include="scripts\loading-bar.js" />
     <Content Include="scripts\loading-bar.min.js" />
+    <Content Include="scripts\ThirdParty\pickadate\legacy.js" />
+    <Content Include="scripts\ThirdParty\pickadate\picker.date.js" />
+    <Content Include="scripts\ThirdParty\pickadate\picker.js" />
+    <Content Include="scripts\ThirdParty\pickadate\picker.time.js" />
     <Content Include="scripts\toaster.js" />
     <Content Include="scripts\ui-bootstrap-0.9.0.js" />
     <Content Include="scripts\ui-bootstrap-0.9.0.min.js" />

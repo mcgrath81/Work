@@ -17,7 +17,6 @@ app.controller('placesExplorerController', function ($scope, placesExplorerServi
     init();
 
     function init() {
-
         createWatche();
         getPlaces();
     }

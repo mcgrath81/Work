@@ -3,15 +3,17 @@
 app.controller('userContextController', function ($scope, $modalInstance, placesDataService, venue) {
 
     $scope.venue = venue;
-    $scope.user = { userName: "" };
+    $scope.user = { userName: "", arrivalDate:"" };
 
     $scope.close = function () {
         $modalInstance.dismiss('cancel');
     };
 
     $scope.saveUser = function () {
-
+        console.log($scope.user);
+        console.log($scope.user);
         placesDataService.setUserInContext($scope.user.userName);
+        placesDataService.setArrivalDTInCtx($scope.user.arrivalDate);
 
         placesDataService.savePlace(venue).then(
             function () {
@@ -25,4 +27,5 @@ app.controller('userContextController', function ($scope, $modalInstance, places
 
     };
 
+    
 });

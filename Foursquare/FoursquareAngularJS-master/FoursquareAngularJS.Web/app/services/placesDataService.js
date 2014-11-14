@@ -4,6 +4,7 @@ app.factory('placesDataService', function ($http, toaster) {
     var serviceBase = 'api/places/';
     var placesDataFactory = {};
     var userInContext = null;
+    var arrivalDateInContext = null;
 
     var _getUserInCtx = function () {
 
@@ -16,11 +17,17 @@ app.factory('placesDataService', function ($http, toaster) {
 
     };
 
+    var _setArrivalDTInCtx = function (dateInCtx) {
+
+        arrivalDateInContext = dateInCtx;
+
+    };
+
     var _savePlace = function (venue) {
         //process venue to take needed properties
-
         var miniVenue = {
             userName: userInContext,
+            arrivalDate: arrivalDateInContext,
             venueID: venue.id,
             venueName: venue.name,
             address: venue.location.address,
@@ -40,7 +47,7 @@ app.factory('placesDataService', function ($http, toaster) {
                 }
                 else
                 {
-                    toaster.pop('error', "Faield to Bookmark", "Something went wrong while saving :-(");
+                    toaster.pop('error', "Failed to Bookmark", "Something went wrong while saving :-(");
                 }
 
 
@@ -65,6 +72,7 @@ app.factory('placesDataService', function ($http, toaster) {
 
     placesDataFactory.getUserInContext = _getUserInCtx;
     placesDataFactory.setUserInContext = _setUserInCtx;
+    placesDataFactory.setArrivalDTInCtx = _setArrivalDTInCtx;
     placesDataFactory.getUserPlaces = _getUserPlaces;
     placesDataFactory.userExists = _userExists; 
 
