@@ -18,7 +18,6 @@ app.factory('placesDataService', function ($http, toaster) {
     };
 
     var _setArrivalDTInCtx = function (dateInCtx) {
-
         arrivalDateInContext = dateInCtx;
 
     };
