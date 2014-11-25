@@ -10,6 +10,8 @@ namespace FoursquareAngularJS.Data
 
     public interface IFourSquareRepository
     {
+        IEnumerable<EventPreview> GetEventPreviews();
+
         IQueryable<BookmarkedPlace> GetBookmarkedPlaces(string userName);
 
         bool UserNameExists(string userName);
@@ -43,6 +45,14 @@ namespace FoursquareAngularJS.Data
                    .AsQueryable();
         }
 
+        public IEnumerable<EventPreview> GetEventPreviews()
+        {
+            return new List<EventPreview>();
+            //_ctx.BookmarkedPlaces
+            //      .Where(b => b.UserName == userName)
+            //      .AsQueryable();
+        }
+
         public bool UserNameExists(string userName)
         {
             try
@@ -65,6 +75,19 @@ namespace FoursquareAngularJS.Data
                                                 && b.VenueID == bookmarkedPlace.VenueID))
                 {
                     return -1;
+                }
+
+                if(!_ctx.Venues.Any(b => b.VenueID == bookmarkedPlace.VenueID))
+                {
+                    var newVenue = new Venue()
+                    {
+                        Address = bookmarkedPlace.Address,
+                        Category = bookmarkedPlace.Category,
+                        Name = bookmarkedPlace.VenueName,
+                        VenueID = bookmarkedPlace.VenueID,
+                        Rating = bookmarkedPlace.Rating
+                    };
+                    _ctx.Venues.Add(newVenue);
                 }
 
                 bookmarkedPlace.TS = DateTime.Now;

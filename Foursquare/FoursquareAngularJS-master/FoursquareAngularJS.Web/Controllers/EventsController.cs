@@ -9,29 +9,28 @@ using System.Web.Http;
 
 namespace FoursquareAngularJS.Web.Controllers
 {
-    public class PlacesController : BaseApiController
+    public class EventsController : BaseApiController
     {
 
-        public IEnumerable<BookmarkedPlace> Get(string userName, int page = 0, int pageSize = 10)
+        public IEnumerable<EventPreview> Get()
         {
-            IQueryable<BookmarkedPlace> query;
-
-            query = TheRepository.GetBookmarkedPlaces(userName).OrderByDescending(b => b.Id);
+            //IQueryable<EventPreview> query;
+            var query = TheRepository.GetEventPreviews();
             
-            var totalCount = query.Count();
-            var totalPages = (int)Math.Ceiling((double)totalCount / pageSize);
-            var paginationHeader = new
-            {
-                TotalCount = totalCount,
-                TotalPages = totalPages,
-            };
+            //var totalCount = query.Count();
+            //var totalPages = (int)Math.Ceiling((double)totalCount / pageSize);
+            //var paginationHeader = new
+            //{
+            //    TotalCount = totalCount,
+            //    TotalPages = totalPages,
+            //};
 
-            System.Web.HttpContext.Current.Response.Headers.Add("X-Pagination",
-                                                                Newtonsoft.Json.JsonConvert.SerializeObject(paginationHeader));
+            //System.Web.HttpContext.Current.Response.Headers.Add("X-Pagination",
+            //                                                    Newtonsoft.Json.JsonConvert.SerializeObject(paginationHeader));
 
             var results = query
-                         .Skip(pageSize * page)
-                         .Take(pageSize)
+                         //.Skip(pageSize * page)
+                         //.Take(pageSize)
                          .ToList();
 
 

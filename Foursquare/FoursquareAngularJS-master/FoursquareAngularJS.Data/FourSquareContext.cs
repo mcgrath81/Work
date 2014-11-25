@@ -25,11 +25,13 @@ namespace FoursquareAngularJS.Data
         }
 
         public DbSet<BookmarkedPlace> BookmarkedPlaces { get; set; }
+        public DbSet<Venue> Venues { get; set; }
        
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Configurations.Add(new BookmarkedPlaceMapper());
+            modelBuilder.Configurations.Add(new VenueMapper());
 
             log.Info("OnModelCreating");
             base.OnModelCreating(modelBuilder);

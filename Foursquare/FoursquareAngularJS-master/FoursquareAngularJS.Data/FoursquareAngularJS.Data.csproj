@@ -50,10 +50,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\BookmarkedPlace.cs" />
+    <Compile Include="Entities\EventPreview.cs" />
+    <Compile Include="Entities\Venue.cs" />
     <Compile Include="FourSquareContext.cs" />
     <Compile Include="FourSquareRepository.cs" />
     <Compile Include="Mappers\BookmarkedPlaceMapper.cs" />
     <Compile Include="FourSquareContextMigrationConfiguration.cs" />
+    <Compile Include="Mappers\VenueMapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
