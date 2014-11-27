@@ -14,54 +14,12 @@ namespace FoursquareAngularJS.Web.Controllers
 
         public IEnumerable<EventPreview> Get()
         {
-            //IQueryable<EventPreview> query;
+         
             var query = TheRepository.GetEventPreviews();
-            
-            //var totalCount = query.Count();
-            //var totalPages = (int)Math.Ceiling((double)totalCount / pageSize);
-            //var paginationHeader = new
-            //{
-            //    TotalCount = totalCount,
-            //    TotalPages = totalPages,
-            //};
-
-            //System.Web.HttpContext.Current.Response.Headers.Add("X-Pagination",
-            //                                                    Newtonsoft.Json.JsonConvert.SerializeObject(paginationHeader));
-
-            var results = query
-                         //.Skip(pageSize * page)
-                         //.Take(pageSize)
-                         .ToList();
+            var results = query.ToList();
 
 
             return results;
-
-        }
-
-        public HttpResponseMessage Post([FromBody] BookmarkedPlace bookmarkedPlace)
-        {
-            try
-            {
-                var result = TheRepository.SavePlace(bookmarkedPlace);
-
-                if (result > 0)
-                {
-                    return Request.CreateResponse(HttpStatusCode.Created, bookmarkedPlace);
-                }
-                else if (result == -1)
-                {
-                    return Request.CreateResponse(HttpStatusCode.NotModified,
-                        string.Format("Venue: {0} already saved in User: {1} bookmarks.", bookmarkedPlace.VenueName, bookmarkedPlace.UserName));
-                }
-                else
-                {
-                    return Request.CreateErrorResponse(HttpStatusCode.BadRequest, "Could not save to the database.");
-                }
-            }
-            catch (Exception ex)
-            {
-                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ex);
-            }
 
         }
 

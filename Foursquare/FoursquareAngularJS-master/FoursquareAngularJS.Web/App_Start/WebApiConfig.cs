@@ -23,6 +23,12 @@ namespace FoursquareAngularJS.Web
                defaults: new { controller = "users" }
            );
 
+            config.Routes.MapHttpRoute(
+               name: "EventsRoute",
+               routeTemplate: "api/events",
+               defaults: new { controller = "events" }
+           );
+
              var jsonFormatter = config.Formatters.OfType<JsonMediaTypeFormatter>().First();
             jsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
         }

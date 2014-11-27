@@ -1,4 +1,5 @@
-﻿using FoursquareAngularJS.Data.Entities;
+﻿using System.Collections;
+using FoursquareAngularJS.Data.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -47,10 +48,15 @@ namespace FoursquareAngularJS.Data
 
         public IEnumerable<EventPreview> GetEventPreviews()
         {
-            return new List<EventPreview>();
-            //_ctx.BookmarkedPlaces
-            //      .Where(b => b.UserName == userName)
-            //      .AsQueryable();
+            return _ctx.BookmarkedPlaces.GroupBy(p => new {p.VenueID, p.VenueName,p.Category,p.Rating,p.Address}).Select(g => new EventPreview()
+            {
+                VenueID = g.Key.VenueID,
+                Name = g.Key.VenueName,
+                Category = g.Key.Category,
+                Rating = g.Key.Rating,
+                Address = g.Key.Address,
+                AttendeesCount = g.Count()
+            }).ToList();
         }
 
         public bool UserNameExists(string userName)
