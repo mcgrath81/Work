@@ -1,5 +1,5 @@
 ﻿'use strict';
-app.controller('hotspotsController', function ($scope, placesExplorerService, placesPhotosService, placesDataService, $filter, $modal) {
+app.controller('hotspotsController', function ($scope, placesExplorerService, placesPhotosService, eventsDataService, $filter, $modal) {
 
     $scope.exploreNearby = "New York";
     $scope.exploreQuery = "";
@@ -25,11 +25,10 @@ app.controller('hotspotsController', function ($scope, placesExplorerService, pl
 
        var offset = ($scope.pageSize) * ($scope.currentPage - 1);
 
-        placesExplorerService.get({ near: $scope.exploreNearby, query: $scope.exploreQuery, limit: $scope.pageSize, offset: offset }, function (placesResult) {
-
-            if (placesResult.response.groups) {
-                $scope.places = placesResult.response.groups[0].items;
-                $scope.totalRecordsCount = placesResult.response.totalResults;
+       eventsDataService.getEvents().then(function (eventsResult) {
+           if (eventsResult.data) {
+               $scope.places = eventsResult.data;
+               $scope.totalRecordsCount = eventsResult.data.length;
                 filterPlaces('');
             }
             else {
@@ -94,13 +93,22 @@ app.controller('hotspotsController', function ($scope, placesExplorerService, pl
     };
 
     $scope.buildCategoryIcon = function (icon) {
-
-        return icon.prefix + '44' + icon.suffix;
+        if (icon != null) {
+            return icon.prefix + '44' + icon.suffix;
+        }
+        else {
+            return '';
+        }
     };
 
     $scope.buildVenueThumbnail = function (photo) {
-
-        return photo.items[0].prefix + '128x128' + photo.items[0].suffix;
+        if (photo != null) {
+            return photo.items[0].prefix + '128x128' + photo.items[0].suffix;            
+        }
+        else {
+            return '';
+        }
+        
     };
 
     $scope.bookmarkPlace = function (venue) {

@@ -153,6 +153,7 @@
     <Content Include="app\directives\fsDatePicker.js" />
     <Content Include="app\directives\fsUnique.js" />
     <Content Include="app\filters\placeNameCategoryFilter.js" />
+    <Content Include="app\services\eventsDataService.js" />
     <Content Include="app\services\placesDataService.js" />
     <Content Include="app\services\placesExplorerService.js" />
     <Content Include="app\services\placesPhotosService.js" />

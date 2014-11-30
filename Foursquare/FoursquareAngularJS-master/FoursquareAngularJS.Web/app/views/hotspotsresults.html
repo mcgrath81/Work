@@ -30,12 +30,12 @@
                 <li class="list-group-item">
                     <div class="row">
                         <div class="col-xs-2 col-md-1">
-                            <img data-ng-src="{{buildCategoryIcon(item.venue.categories[0].icon)}}"
-                                title="{{item.venue.categories[0].shortName}}" class="venueIcon" />
+                            <img data-ng-src="{{buildCategoryIcon(item.venueDetails.response.venue.categories[0].icon)}}"
+                                title="{{item.venueDetails.response.venue.categories[0].shortName}}" class="venueIcon" />
                         </div>
                         <div class="col-xs-6 col-md-8">
-                            <a href="" data-ng-click="showVenuePhotos(item.venue.id,item.venue.name)">
-                                <h2 class="venueName">{{item.venue.name}}</h2>
+                            <a href="" data-ng-click="showVenuePhotos(item.venueDetails.response.venue.id,item.venueDetails.response.venue.name)">
+                                <h2 class="venueName">{{item.venueDetails.response.venue.name}}</h2>
                             </a>
                         </div>
                         <div class="col-xs-4 col-md-3">
@@ -44,17 +44,17 @@
                     </div>
                     <div class="row">
                         <div class="col-xs-2 col-md-1">
-                            <span class="badge">{{item.venue.rating | number:1}}</span>
+                            <span class="badge">{{item.venueDetails.response.venue.rating | number:1}}</span>
                         </div>
                         <div class="col-xs-6 col-md-8">
-                            <p class="text-warning"><small>{{(item.venue.location.address != null) && item.venue.location.address}} - {{item.venue.categories[0].shortName}}</small></p>
-                            <p>{{item.tips[0].text}}</p>
+                            <p class="text-warning"><small>{{(item.venueDetails.response.venue.location.address != null) && item.venueDetails.response.venue.location.address}} - {{item.venueDetails.response.venue.categories[0].shortName}}</small></p>
+                            <p>{{item.venueDetails.response.venue.timeZone}}</p>
                             <hr class="seperator" />
-                            <a href="" data-ng-click="bookmarkPlace(item.venue)"><span class="glyphicon glyphicon-bookmark"></span>Bookmark Place</a>
+                            <a href="" data-ng-click="bookmarkPlace(item.venueDetails.response.venue)"><span class="glyphicon glyphicon-bookmark"></span>Bookmark Place</a>
                         </div>
                         <div class="col-xs-4 col-md-3">
-                            <a href="" data-ng-click="showVenuePhotos(item.venue.id,item.venue.name)">
-                                <img data-ng-src="{{buildVenueThumbnail(item.venue.photos.groups[0])}}" class="img-thumbnail" /></a>
+                           <a href="" data-ng-click="showVenuePhotos(item.venueDetails.response.venue.id,item.venueDetails.response.venue.name)">
+                                <img data-ng-src="{{buildVenueThumbnail(item.venueDetails.response.venue.photos.groups[0])}}" class="img-thumbnail" /></a>
                         </div>
                     </div>
 

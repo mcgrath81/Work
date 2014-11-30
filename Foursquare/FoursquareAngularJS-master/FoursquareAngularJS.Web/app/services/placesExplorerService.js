@@ -11,10 +11,10 @@ var requestParms = {
 app.factory('placesExplorerService', function ($resource) {
 
     var requestUri = 'https://api.foursquare.com/v2/venues/:action';
-
+   
     return $resource(requestUri,
         {
-            action: 'explore',
+            action: requestParms.action,
             client_id: requestParms.clientId,
             client_secret: requestParms.clientSecret,
             v: requestParms.version,

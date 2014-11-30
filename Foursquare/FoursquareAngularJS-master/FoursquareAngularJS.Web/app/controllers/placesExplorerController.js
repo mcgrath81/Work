@@ -25,8 +25,8 @@ app.controller('placesExplorerController', function ($scope, placesExplorerServi
 
        var offset = ($scope.pageSize) * ($scope.currentPage - 1);
 
-        placesExplorerService.get({ near: $scope.exploreNearby, query: $scope.exploreQuery, limit: $scope.pageSize, offset: offset }, function (placesResult) {
-
+        placesExplorerService.get({ near: $scope.exploreNearby, action:'explore', query: $scope.exploreQuery, limit: $scope.pageSize, offset: offset }, function (placesResult) {
+            console.log(placesResult.response);
             if (placesResult.response.groups) {
                 $scope.places = placesResult.response.groups[0].items;
                 $scope.totalRecordsCount = placesResult.response.totalResults;
