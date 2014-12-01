@@ -144,6 +144,7 @@
   <ItemGroup>
     <Content Include="app\app.js" />
     <Content Include="app\controllers\aboutController.js" />
+    <Content Include="app\controllers\attendeesController.js" />
     <Content Include="app\controllers\hotspotsController.js" />
     <Content Include="app\controllers\myPlacesController.js" />
     <Content Include="app\controllers\navigationController.js" />
@@ -153,11 +154,13 @@
     <Content Include="app\directives\fsDatePicker.js" />
     <Content Include="app\directives\fsUnique.js" />
     <Content Include="app\filters\placeNameCategoryFilter.js" />
+    <Content Include="app\services\attendeesDataService.js" />
     <Content Include="app\services\eventsDataService.js" />
     <Content Include="app\services\placesDataService.js" />
     <Content Include="app\services\placesExplorerService.js" />
     <Content Include="app\services\placesPhotosService.js" />
     <Content Include="app\views\about.html" />
+    <Content Include="app\views\attendees.html" />
     <Content Include="app\views\hotspotsresults.html" />
     <Content Include="app\views\myplaces.html" />
     <Content Include="app\views\placesphotos.html" />

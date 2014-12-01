@@ -21,6 +21,11 @@ app.config(function ($routeProvider) {
         templateUrl: "app/views/myplaces.html"
     });
 
+    $routeProvider.when("/attendees", {
+        controller: "attendeesController",
+        templateUrl: "app/views/attendees.html"
+    });
+
     $routeProvider.when("/hotspots", {
         controller: "hotspotsController",
         templateUrl: "app/views/hotspotsresults.html"

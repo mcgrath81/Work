@@ -1,5 +1,5 @@
 ﻿'use strict';
-app.controller('hotspotsController', function ($scope, placesExplorerService, placesPhotosService, eventsDataService, $filter, $modal) {
+app.controller('hotspotsController', function ($scope, placesDataService, placesPhotosService, eventsDataService, $filter, $modal) {
 
     $scope.exploreNearby = "New York";
     $scope.exploreQuery = "";

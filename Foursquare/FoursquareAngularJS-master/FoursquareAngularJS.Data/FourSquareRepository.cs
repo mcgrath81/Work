@@ -13,6 +13,8 @@ namespace FoursquareAngularJS.Data
     {
         IEnumerable<EventPreview> GetEventPreviews();
 
+        IEnumerable<User> GetAttendees();
+
         IQueryable<BookmarkedPlace> GetBookmarkedPlaces(string userName);
 
         bool UserNameExists(string userName);
@@ -57,6 +59,12 @@ namespace FoursquareAngularJS.Data
                 Address = g.Key.Address,
                 AttendeesCount = g.Count()
             }).ToList();
+        }
+
+        public IEnumerable<User> GetAttendees()
+        {
+            return _ctx.BookmarkedPlaces.Select(b => b.UserName).Distinct().Select(g => new User() {
+                UserName = g}).ToList();
         }
 
         public bool UserNameExists(string userName)

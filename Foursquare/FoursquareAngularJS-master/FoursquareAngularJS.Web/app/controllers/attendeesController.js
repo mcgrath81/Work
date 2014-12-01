@@ -1,5 +1,5 @@
 ﻿'use strict';
-app.controller('placesExplorerController', function ($scope, placesExplorerService, placesPhotosService, placesDataService, $filter, $modal) {
+app.controller('attendeesController', function ($scope, attendeesDataService, placesDataService, placesPhotosService, $filter, $modal) {
 
     $scope.exploreNearby = "New York";
     $scope.exploreQuery = "";
@@ -17,22 +17,21 @@ app.controller('placesExplorerController', function ($scope, placesExplorerServi
     init();
 
     function init() {
-        createWatche();
-        getPlaces();
+        getAttendees();
     }
 
-    function getPlaces() {
+    function getAttendees() {
 
        var offset = ($scope.pageSize) * ($scope.currentPage - 1);
 
-        placesExplorerService.get({ near: $scope.exploreNearby, action:'explore', query: $scope.exploreQuery, limit: $scope.pageSize, offset: offset }, function (placesResult) {
-            if (placesResult.response.groups) {
-                $scope.places = placesResult.response.groups[0].items;
-                $scope.totalRecordsCount = placesResult.response.totalResults;
+       attendeesDataService.getAttendees().then(function (attendeesResult) {
+           if (attendeesResult.data) {
+               $scope.attendees = attendeesResult.data;
+               $scope.totalRecordsCount = attendeesResult.data.length;
                 filterPlaces('');
             }
             else {
-                $scope.places = [];
+               $scope.attendees = [];
                 $scope.totalRecordsCount = 0;
             }
 
@@ -54,14 +53,14 @@ app.controller('placesExplorerController', function ($scope, placesExplorerServi
     $scope.doSearch = function () {
 
         $scope.currentPage = 1;
-        getPlaces();
+        getAttendees();
 
     };
 
     $scope.pageChanged = function (page) {
 
         $scope.currentPage = page;
-        getPlaces();
+        getAttendees();
 
     };
 
@@ -92,39 +91,5 @@ app.controller('placesExplorerController', function ($scope, placesExplorerServi
 
     };
 
-    $scope.buildCategoryIcon = function (icon) {
 
-        return icon.prefix + '44' + icon.suffix;
-    };
-
-    $scope.buildVenueThumbnail = function (photo) {
-
-        return photo.items[0].prefix + '128x128' + photo.items[0].suffix;
-    };
-
-    $scope.bookmarkPlace = function (venue) {
-
-        if (!placesDataService.getUserInContext()) {
-
-            var modalInstance = $modal.open({
-                templateUrl: 'app/views/userprofile.html',
-                controller: 'userContextController',
-                resolve: {
-                    venue: function () {
-                        return venue;
-                    }
-                }
-            });
-        }
-        else {
-            placesDataService.savePlace(venue).then(
-            function (results) {
-                // Do nothing as toaster showing from service
-            },
-            function (results) {
-                // Do nothing as toaster showing from service
-            });
-        }
-
-    };
 });

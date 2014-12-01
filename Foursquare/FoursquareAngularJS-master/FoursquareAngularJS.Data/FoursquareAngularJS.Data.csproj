@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\BookmarkedPlace.cs" />
+    <Compile Include="Entities\User.cs" />
     <Compile Include="Entities\EventPreview.cs" />
     <Compile Include="Entities\Venue.cs" />
     <Compile Include="FourSquareContext.cs" />

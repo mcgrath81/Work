@@ -22,7 +22,11 @@ namespace FoursquareAngularJS.Web
                routeTemplate: "api/users/{userName}",
                defaults: new { controller = "users" }
            );
-
+            config.Routes.MapHttpRoute(
+               name: "AttendeesRoute",
+               routeTemplate: "api/attendees",
+               defaults: new { controller = "users", action="getAttendees" }
+           );
             config.Routes.MapHttpRoute(
                name: "EventsRoute",
                routeTemplate: "api/events",
