@@ -9,5 +9,6 @@ namespace FoursquareAngularJS.Data.Entities
    public class User
     {
         public string UserName { get; set; }
+        public string Icon = "../content/images/unknown_person.png";
     }
 }

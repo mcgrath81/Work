@@ -29,9 +29,8 @@
             <ul class="list-group" data-ng-repeat="item in attendees">
                 <li class="list-group-item">
                     <div class="row">
-                        <div class="col-xs-2 col-md-1">
-                            <img data-ng-src="{{item.icon}}" class="venueIcon" />
-                        </div>
+                        <div class="col-xs-6 col-md-8">
+                            <div class="row">
                         <div class="col-xs-6 col-md-8">
                             <a href="">
                                 <h2 class="attendeeName">{{item.userName}}</h2>
@@ -46,13 +45,19 @@
                             <p class="text-warning"><small>{{(item.userName)}}</small></p>
                             <p>{{item.userName}}</p>
                             <hr class="seperator" />
-                            <a href="#/attendees" data-ng-click=""><span class="glyphicon glyphicon-bookmark"></span>View Attendees</a>
+                        </div>                        
+                    </div>
                         </div>
                         <div class="col-xs-4 col-md-3">
+                             <div class="">
                            <a href="">
                                 <img data-ng-src="{{item.icon}}" class="img-thumbnail" /></a>
                         </div>
+                        </div>
                     </div>
+                    
+                   
+                    
 
                 </li>
             </ul>
