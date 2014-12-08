@@ -6,7 +6,9 @@ app.directive("fsDatePicker", function () {
         link: function(scope, element, attrs) {
             $(element).pickadate({
                 format: 'yyyy-mm-dd',
-                editable: true,
+                firstDay: 1,
+                container:'.modal',
+                //editable: true,
                 //onStart: function () {
                 //    console.log('Hello there :)');
                 //},
