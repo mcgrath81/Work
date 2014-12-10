@@ -11,7 +11,7 @@ namespace FoursquareAngularJS.Data
 
     public interface IFourSquareRepository
     {
-        IEnumerable<EventPreview> GetEventPreviews();
+        IEnumerable<EventPreview> GetEventPreviews(DateTime date);
 
         IEnumerable<User> GetAttendees();
 
@@ -48,7 +48,7 @@ namespace FoursquareAngularJS.Data
                    .AsQueryable();
         }
 
-        public IEnumerable<EventPreview> GetEventPreviews()
+        public IEnumerable<EventPreview> GetEventPreviews(DateTime date)
         {
             return _ctx.BookmarkedPlaces.GroupBy(p => new {p.VenueID, p.VenueName,p.Category,p.Rating,p.Address}).Select(g => new EventPreview()
             {

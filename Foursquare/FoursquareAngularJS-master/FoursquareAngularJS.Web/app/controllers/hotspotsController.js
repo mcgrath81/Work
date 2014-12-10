@@ -1,8 +1,9 @@
 ﻿'use strict';
 app.controller('hotspotsController', function ($scope, placesDataService, placesPhotosService, eventsDataService, $filter, $modal) {
 
-    $scope.exploreNearby = "New York";
+    $scope.exploreNearby = "Dublin";
     $scope.exploreQuery = "";
+    $scope.exploreDate = "2014-12-09";
     $scope.filterValue = "";
 
     $scope.places = [];
@@ -22,10 +23,9 @@ app.controller('hotspotsController', function ($scope, placesDataService, places
     }
 
     function getPlaces() {
-
+        
        var offset = ($scope.pageSize) * ($scope.currentPage - 1);
-
-       eventsDataService.getEvents().then(function (eventsResult) {
+       eventsDataService.getEvents($scope.exploreDate).then(function (eventsResult) {
            if (eventsResult.data) {
                $scope.places = eventsResult.data;
                $scope.totalRecordsCount = eventsResult.data.length;

@@ -12,10 +12,10 @@ namespace FoursquareAngularJS.Web.Controllers
     public class EventsController : BaseApiController
     {
 
-        public IEnumerable<EventPreview> Get()
+        public IEnumerable<EventPreview> Get(DateTime date)
         {
-         
-            var query = TheRepository.GetEventPreviews();
+
+            var query = TheRepository.GetEventPreviews(date);
             var results = query.ToList();
 
 

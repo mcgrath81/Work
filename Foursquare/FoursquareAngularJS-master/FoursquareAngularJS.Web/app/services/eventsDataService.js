@@ -22,8 +22,14 @@ app.factory('eventsDataService', function ($http, placesExplorerService, toaster
 
     };
 
-    var _getEvents = function () {
-        return $http.get(serviceBase).then(function (results) {
+    var _getEvents = function (queryDate) {
+        return $http.get(serviceBase,
+            {
+                params: {
+                    date: queryDate
+                }
+            }
+            ).then(function (results) {
             for (var i = 0; i < results.data.length; i++) {
                 results.data[i].venueDetails = placesExplorerService.get({ action: results.data[i].venueID });
             }

@@ -1,7 +1,7 @@
 ﻿'use strict';
 app.controller('placesExplorerController', function ($scope, placesExplorerService, placesPhotosService, placesDataService, $filter, $modal) {
 
-    $scope.exploreNearby = "New York";
+    $scope.exploreNearby = "Dublin";
     $scope.exploreQuery = "";
     $scope.filterValue = "";
 
