@@ -1,5 +1,5 @@
 ﻿'use strict';
-app.controller('hotspotsController', function ($scope, placesDataService, placesPhotosService, eventsDataService, $filter, $modal) {
+app.controller('hotspotsController', function ($scope, $location, attendeesDataService, placesDataService, placesPhotosService, eventsDataService, $filter, $modal) {
 
     $scope.exploreNearby = "Dublin";
     $scope.exploreQuery = "";
@@ -135,5 +135,10 @@ app.controller('hotspotsController', function ($scope, placesDataService, places
             });
         }
 
+    };
+
+    $scope.viewAttendees = function (event) {
+        attendeesDataService.setEventIdInCtx(event.id);
+        $location.path('/attendees');
     };
 });

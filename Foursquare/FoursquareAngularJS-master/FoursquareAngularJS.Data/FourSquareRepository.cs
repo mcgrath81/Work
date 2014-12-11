@@ -13,7 +13,7 @@ namespace FoursquareAngularJS.Data
     {
         IEnumerable<EventPreview> GetEventPreviews(DateTime date);
 
-        IEnumerable<User> GetAttendees();
+        IEnumerable<User> GetAttendees(string eventID);
 
         IQueryable<BookmarkedPlace> GetBookmarkedPlaces(string userName);
 
@@ -61,10 +61,13 @@ namespace FoursquareAngularJS.Data
             }).ToList();
         }
 
-        public IEnumerable<User> GetAttendees()
+        public IEnumerable<User> GetAttendees(string venueID)
         {
-            return _ctx.BookmarkedPlaces.Select(b => b.UserName).Distinct().Select(g => new User() {
-                UserName = g}).ToList();
+            var result = from a in _ctx.BookmarkedPlaces
+                               where a.VenueID == venueID
+                               select new User() { UserName = a.UserName};
+            return result.ToList();
+            
         }
 
         public bool UserNameExists(string userName)

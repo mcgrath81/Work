@@ -13,10 +13,10 @@ namespace FoursquareAngularJS.Web.Controllers
             return TheRepository.UserNameExists(userName);
         }
 
-        public IEnumerable<User> GetAttendees()
+        public IEnumerable<User> GetAttendees(string eventId)
         {
 
-            var query = TheRepository.GetAttendees();
+            var query = TheRepository.GetAttendees(eventId);
             var results = query.ToList();
 
 

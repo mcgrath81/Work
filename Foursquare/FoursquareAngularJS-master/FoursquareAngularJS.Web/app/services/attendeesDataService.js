@@ -3,17 +3,17 @@ app.factory('attendeesDataService', function ($http, placesExplorerService, toas
 
     var serviceBase = 'api/attendees/';
     var attendeesDataFactory = {};
-    var userInContext = null;
+    var eventInContext = null;
     var arrivalDateInContext = null;
 
-    var _getUserInCtx = function () {
+    var _getEventInCtx = function () {
 
-        return userInContext;
+        return eventInContext;
     };
 
-    var _setUserInCtx = function (userInCtx) {
+    var _setEventInCtx = function (eventInCtx) {
 
-        userInContext = userInCtx;
+        eventInContext = eventInCtx;
 
     };
 
@@ -23,13 +23,20 @@ app.factory('attendeesDataService', function ($http, placesExplorerService, toas
     };
 
     var _getAttendees = function () {
-        return $http.get(serviceBase).then(function (results) {
+        return $http.get(serviceBase,
+            {
+                params: {
+                    eventId: eventInContext
+                }
+            }
+            ).then(function (results) {
             return results;
         });
     };
     
 
     attendeesDataFactory.getAttendees = _getAttendees;
+    attendeesDataFactory.setEventIdInCtx = _setEventInCtx;
 
     return attendeesDataFactory;
 });
